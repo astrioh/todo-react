@@ -1,0 +1,14 @@
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    &_red {
+        background-color: #c21807;
+    }
+    &_green {
+        background-color: #3ea055;
+    }
+    &_blue {
+        background-color: #0492C2;
+    }
+}
