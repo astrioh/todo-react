@@ -2,9 +2,9 @@ import React from 'react';
 import "./NavList.scss";
 import Dot from '../Dot/Dot';
 
-const NavList = ({ tasks }) => {
+const NavList = ({ tasks, deletable, onClick }) => {
     return (
-    <ul className="nav-list">
+    <ul onClick={onClick} className="nav-list">
         {
             tasks.map(task => (
                 <li key={task.id} className={task.active ? 'nav-list__item nav-list__item_active' : 'nav-list__item'}>

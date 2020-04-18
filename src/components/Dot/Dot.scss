@@ -1,6 +1,6 @@
 .dot {
-    width: 8px;
-    height: 8px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     &_red {
         background-color: #c21807;
@@ -10,5 +10,15 @@
     }
     &_blue {
         background-color: #0492C2;
+    }
+    &_purple {
+        background-color: #663a82;
+    }
+    &_yellow {
+        background-color: #ffd300;
+    }
+    &_medium {
+        width: 18px;
+        height: 18px;
     }
 }

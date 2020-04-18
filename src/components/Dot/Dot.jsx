@@ -1,9 +1,9 @@
 import React from 'react';
 import './Dot.scss';
 
-const Dot = ({ color }) => {
+const Dot = ({ color, size }) => {
     return (
-        <div className={`dot dot_${color}`}></div>
+        <div className={size ? `dot dot_${color} dot_${size}` : `dot dot_${color}`}></div>
     )
 }
 
