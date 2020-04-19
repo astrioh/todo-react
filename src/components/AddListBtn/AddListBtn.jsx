@@ -24,6 +24,7 @@ const AddListBtn = ({ colors, onAddTheme, themeLastId }) => {
         }
         const color = colors.find((color) => color.id === selectedColor).name;
         onAddTheme({id: ++themeLastId, text: themeName, colorId: selectedColor, color: color});
+        setVisibility(false);
     }
 
     return (
