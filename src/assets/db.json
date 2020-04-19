@@ -1,0 +1,14 @@
+{
+    "colors": [
+        {"id": 1, "name": "red", "hex": "#c21807"},
+        {"id": 2, "name": "green", "hex": "#3ea055"},
+        {"id": 3, "name": "blue", "hex": "#0492C2"},
+        {"id": 4, "name": "purple", "hex": "#663a82"},
+        {"id": 5, "name": "yellow", "hex": "#ffd300"}
+    ],
+    "themes": [
+        {"id": 1, "text": "Grocery", "colorId": 2},
+        {"id": 2, "text": "Housework", "colorId": 5},
+        {"id": 3, "text": "Movies to watch", "colorId": 3}
+    ]
+}
