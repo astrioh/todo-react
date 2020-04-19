@@ -61,10 +61,10 @@ const AddListBtn = ({ colors, onAddTheme, themeLastId }) => {
                         ))}
                     </div>
                     <div className="add-list__controls">
-                        <ModalButton type="add" onClick={() => addTheme()} />
+                        <ModalButton type="add" onClick={addTheme} />
                         <ModalButton
                             type="cancel"
-                            onClick={() => closeAddModal()}
+                            onClick={closeAddModal}
                         />
                     </div>
                 </div>
