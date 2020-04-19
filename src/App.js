@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavList from './components/NavList/NavList';
 
 import menuImg from './assets/img/menu.png';
 import AddListBtn from './components/AddListBtn/AddListBtn';
 
+import DB from './assets/db.json';
+
 function App() {
+    const [themes, setThemes] = useState(
+        DB.themes.map((theme) => {
+            theme.color = DB.colors.find(
+                (color) => color.id === theme.colorId
+            ).name;
+            return theme;
+        })
+    );
+
+    const onAddTheme = (themeObj) => {
+        setThemes([...themes, themeObj]);
+    };
+
     return (
         <div className="todo-app">
             <div className="todo-app__menu">
                 <NavList
-                    tasks={[
+                    items={[
                         {
                             id: 1,
                             icon: menuImg,
@@ -18,27 +33,8 @@ function App() {
                         },
                     ]}
                 />
-                <NavList
-                    tasks={[
-                        {
-                            id: 1,
-                            color: 'red',
-                            text: 'Groceries',
-                        },
-                        {
-                            id: 2,
-                            color: 'blue',
-                            text: 'Housework',
-                        },
-                        {
-                            id: 3,
-                            color: 'green',
-                            text: 'Education',
-                        },
-                    ]}
-                    deletable
-                />
-                <AddListBtn />
+                <div className='todo-app__themes'><NavList items={themes} deletable /></div>
+                <AddListBtn themeLastId={themes.length} onAddTheme={onAddTheme} colors={DB.colors} />
             </div>
             <div className="todo-app__tasks">aaaa</div>
         </div>

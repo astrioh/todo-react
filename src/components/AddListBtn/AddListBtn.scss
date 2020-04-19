@@ -1,13 +1,28 @@
 .add-list {
     color: #666666;
+    
     &:hover {
         color: #000;
     }
     &__modal {
+        position: relative;
+        top: -55px;
+        left: 10px;
         width: 255px;
-        height: 160px;
+        height: 135px;
         background-color: #fff;
         box-shadow: 0px 6px 10px rgba(#000000, 0.05);
         border-radius: 5px;
+        padding: 8px 25px;
+    }
+    &__colors {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-around;
+    }
+    &__controls {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
     }
 }

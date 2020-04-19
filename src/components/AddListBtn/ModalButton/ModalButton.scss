@@ -1,0 +1,21 @@
+.modal-button {
+    width: 85px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    &_add {
+        background-color: #4dd599;
+        &:hover, &:focus {
+            background-color: #32a372;
+        }
+    }
+    &_cancel {
+        background-color: #e3242b;
+        &:hover, &:focus {
+            background-color: #b9151b;
+        }
+    }
+}
