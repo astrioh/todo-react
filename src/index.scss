@@ -27,5 +27,24 @@ body {
         border-bottom-left-radius: 10px;
         border-top-left-radius: 10px;
         padding: 50px 20px;
+        
+    }
+    &__themes {
+        max-height: 60%;
+        overflow-y: auto;
+        margin-bottom: 40px;
+    }
+}
+
+.textfield {
+    border: none;
+    border-bottom: 2px solid #cecece;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+    outline: none;
+    transition: .2s;
+    &:focus {
+        border-color: #8a8a8a;
     }
 }
