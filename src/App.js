@@ -20,6 +20,7 @@ function App() {
         setThemes([...themes, themeObj]);
     };
 
+
     return (
         <div className="todo-app">
             <div className="todo-app__menu">
@@ -33,10 +34,12 @@ function App() {
                         },
                     ]}
                 />
-                <div className='todo-app__themes'><NavList items={themes} deletable /></div>
+                <div className='todo-app__themes'><NavList items={themes} onDelete={(item) => console.log(item)} deletable /></div>
                 <AddListBtn themeLastId={themes.length} onAddTheme={onAddTheme} colors={DB.colors} />
             </div>
-            <div className="todo-app__tasks">aaaa</div>
+            <div className="todo-app__tasks">
+                <h2></h2>
+            </div>
         </div>
     );
 }
