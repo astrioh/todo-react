@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavList from '../NavList/NavList';
 
 import plusImg from '../../assets/img/plus.png';
@@ -8,8 +8,14 @@ import Dot from '../Dot/Dot';
 
 const AddListBtn = ({ colors, onAddTheme, themeLastId }) => {
     const [isVisible, setVisibility] = useState(false);
-    const [selectedColor, setSelectedColor] = useState(colors[0].id);
+    const [selectedColor, setSelectedColor] = useState(1);
     const [themeName, setThemeName] = useState('');
+
+    useEffect(() => {
+        if (Array.isArray(colors)) {
+            setSelectedColor(colors[0].id);
+        }
+    }, [colors]);
 
     const closeAddModal = () => {
         setSelectedColor(colors[0].id);
@@ -22,7 +28,7 @@ const AddListBtn = ({ colors, onAddTheme, themeLastId }) => {
             alert('Enter theme name');
             return
         }
-        const color = colors.find((color) => color.id === selectedColor).name;
+        const color = colors.find((color) => color.id === selectedColor);
         onAddTheme({id: ++themeLastId, text: themeName, colorId: selectedColor, color: color});
         closeAddModal();
     }

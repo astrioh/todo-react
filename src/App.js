@@ -1,25 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import NavList from './components/NavList/NavList';
+import AddListBtn from './components/AddListBtn/AddListBtn';
+import Tasks from './components/Tasks/Tasks';
 
 import menuImg from './assets/img/menu.png';
-import AddListBtn from './components/AddListBtn/AddListBtn';
-
-import DB from './assets/db.json';
 
 function App() {
-    const [themes, setThemes] = useState(
-        DB.themes.map((theme) => {
-            theme.color = DB.colors.find(
-                (color) => color.id === theme.colorId
-            ).name;
-            return theme;
-        })
-    );
+    const [themes, setThemes] = useState(null);
+    const [colors, setColors] = useState(null);
+
+    useEffect(() => {
+        axios.get('http://localhost:3005/themes?_expand=color').then(({ data }) => {
+            setThemes(data);
+        });
+        axios.get('http://localhost:3005/colors').then(({ data }) => {
+            setColors(data);
+        });
+        
+        
+    }, []);
 
     const onAddTheme = (themeObj) => {
         setThemes([...themes, themeObj]);
     };
-
 
     return (
         <div className="todo-app">
@@ -34,11 +39,14 @@ function App() {
                         },
                     ]}
                 />
-                <div className='todo-app__themes'><NavList items={themes} onDelete={(item) => console.log(item)} deletable /></div>
-                <AddListBtn themeLastId={themes.length} onAddTheme={onAddTheme} colors={DB.colors} />
+                <div className='todo-app__themes'>
+                    { themes ? <NavList items={themes} onDelete={(item) => console.log(item)} deletable /> : 'Loading...'}
+                    
+                </div>
+                <AddListBtn themeLastId={Array.isArray(themes) ? themes.length : 0} onAddTheme={onAddTheme} colors={colors} />
             </div>
             <div className="todo-app__tasks">
-                <h2></h2>
+                <Tasks />
             </div>
         </div>
     );

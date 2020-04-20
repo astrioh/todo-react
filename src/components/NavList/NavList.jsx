@@ -13,8 +13,8 @@ const NavList = ({ items, deletable, onClick, onDelete }) => {
     <ul onClick={onClick} className="nav-list">
         {
             items.map(item => (
-                <li key={item.id} className={item.active ? 'nav-list__item nav-list__item_active' : 'nav-list__item'}>
-                    {item.icon ? <i><img src={item.icon} alt={item.text + ' icon'} className="nav-list__item-image" /></i> : <i><Dot color={item.color}/></i>}
+                <li key={item.id} className='nav-list__item'>
+                    {item.icon ? <i><img src={item.icon} alt={item.text + ' icon'} className="nav-list__item-image" /></i> : <i><Dot color={item.color.name}/></i>}
                     <span className="nav-list__item-text">{item.text}</span>
                     {deletable && <div onClick={() => deleteTheme(item)} className="nav-list__delete-item"></div>}
                 </li>
