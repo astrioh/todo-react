@@ -21,7 +21,6 @@ body {
     border-radius: 10px;
     &__menu {
         width: 30%;
-        height: 100%;
         background-color: #f4f6f8;
         border-right: 1px solid #d2d4d5;
         border-bottom-left-radius: 10px;
@@ -33,6 +32,10 @@ body {
         max-height: 60%;
         overflow-y: auto;
         margin-bottom: 40px;
+    }
+    &__tasks {
+        flex: 1;
+        padding: 60px 55px;
     }
 }
 

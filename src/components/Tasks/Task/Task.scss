@@ -1,0 +1,37 @@
+.task {
+    &__custom-check{
+        &::before {
+            cursor: pointer;
+            content: '';
+            background-size: 100%;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            border-radius: 50%;
+            border: 2px solid rgb(170, 170, 170);
+            margin-right: 15px;
+            transform: translateY(-4%);
+        }
+    }
+    &__check {
+        display: none;
+        &:hover + .task__custom-check::before {
+                border: none;
+                width: 24px;
+                height: 24px;
+                background-image: url('../../../assets/img/check_hover.png');
+        }
+        &:checked + .task__custom-check::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            border: none;
+            background-image: url('../../../assets/img/check.png');
+        }
+    } 
+    &__text {
+        font-size: 22px;
+        border: none;
+    }  
+}

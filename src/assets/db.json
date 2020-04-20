@@ -10,5 +10,13 @@
         {"id": 1, "text": "Grocery", "colorId": 2},
         {"id": 2, "text": "Housework", "colorId": 5},
         {"id": 3, "text": "Movies to watch", "colorId": 3}
+    ],
+    "tasks": [
+        {"id": 1, "text": "Chicken", "themeId": 1, "completed": true},
+        {"id": 2, "text": "Eggs", "themeId": 1, "completed": false},
+        {"id": 3, "text": "Milk", "themeId": 1, "completed": false},
+        {"id": 4, "text": "Cook a dinner", "themeId": 2, "completed": true},
+        {"id": 5, "text": "Wash dishes", "themeId": 2, "completed": false},
+        {"id": 6, "text": "Cat in the Hat", "themeId": 3, "completed": true}
     ]
 }
