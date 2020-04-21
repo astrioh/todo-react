@@ -12,14 +12,14 @@ function App() {
     const [colors, setColors] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:3005/themes?_expand=color').then(({ data }) => {
-            setThemes(data);
-        });
+        axios
+            .get('http://localhost:3005/themes?_expand=color')
+            .then(({ data }) => {
+                setThemes(data);
+            });
         axios.get('http://localhost:3005/colors').then(({ data }) => {
             setColors(data);
         });
-        
-        
     }, []);
 
     const onAddTheme = (themeObj) => {
@@ -39,14 +39,30 @@ function App() {
                         },
                     ]}
                 />
-                <div className='todo-app__themes'>
-                    { themes ? <NavList items={themes} onDelete={(item) => console.log(item)} deletable /> : 'Loading...'}
-                    
+                <div className="todo-app__themes">
+                    {themes ? (
+                        <NavList
+                            items={themes}
+                            onDelete={(id) => {
+                                const newThemes = themes.filter(
+                                    (theme) => theme.id !== id
+                                );
+                                setThemes(newThemes);
+                            }}
+                            deletable
+                        />
+                    ) : (
+                        'Loading...'
+                    )}
                 </div>
-                <AddListBtn themeLastId={Array.isArray(themes) ? themes.length : 0} onAddTheme={onAddTheme} colors={colors} />
+                <AddListBtn
+                    themeLastId={Array.isArray(themes) ? themes.length : 0}
+                    onAddTheme={onAddTheme}
+                    colors={colors}
+                />
             </div>
             <div className="todo-app__tasks">
-                <Tasks />
+                <Tasks theme={themes[0]} />
             </div>
         </div>
     );

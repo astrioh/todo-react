@@ -1,11 +1,16 @@
 import React from 'react';
-import "./NavList.scss";
 import Dot from '../Dot/Dot';
+import axios from 'axios';
+
+import "./NavList.scss";
+
 
 const NavList = ({ items, deletable, onClick, onDelete }) => {
     const deleteTheme = (theme) => {
         if (window.confirm(`Really delete '${theme.text}'?`)) {
-            onDelete(theme);
+            axios.delete(`http://localhost:3005/themes/${theme.id}`).then(() => {
+                onDelete(theme.id);
+            });
         }
     }
 

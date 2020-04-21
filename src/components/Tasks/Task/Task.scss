@@ -1,5 +1,5 @@
 .task {
-    &__custom-check{
+    &__custom-check {
         &::before {
             cursor: pointer;
             content: '';
@@ -17,10 +17,10 @@
     &__check {
         display: none;
         &:hover + .task__custom-check::before {
-                border: none;
-                width: 24px;
-                height: 24px;
-                background-image: url('../../../assets/img/check_hover.png');
+            border: none;
+            width: 24px;
+            height: 24px;
+            background-image: url('../../../assets/img/check_hover.png');
         }
         &:checked + .task__custom-check::before {
             content: '';
@@ -33,5 +33,12 @@
     &__text {
         font-size: 22px;
         border: none;
+        outline: none;
+        border-radius: 5px;
+        padding: 5px;
+        transition: .1s ease-in-out;
+        &:focus {
+            border: 1px solid rgb(170, 170, 170);
+        }
     }  
 }

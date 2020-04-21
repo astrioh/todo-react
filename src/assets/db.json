@@ -1,22 +1,84 @@
 {
-    "colors": [
-        {"id": 1, "name": "red", "hex": "#c21807"},
-        {"id": 2, "name": "green", "hex": "#3ea055"},
-        {"id": 3, "name": "blue", "hex": "#0492C2"},
-        {"id": 4, "name": "purple", "hex": "#663a82"},
-        {"id": 5, "name": "yellow", "hex": "#ffd300"}
-    ],
-    "themes": [
-        {"id": 1, "text": "Grocery", "colorId": 2},
-        {"id": 2, "text": "Housework", "colorId": 5},
-        {"id": 3, "text": "Movies to watch", "colorId": 3}
-    ],
-    "tasks": [
-        {"id": 1, "text": "Chicken", "themeId": 1, "completed": true},
-        {"id": 2, "text": "Eggs", "themeId": 1, "completed": false},
-        {"id": 3, "text": "Milk", "themeId": 1, "completed": false},
-        {"id": 4, "text": "Cook a dinner", "themeId": 2, "completed": true},
-        {"id": 5, "text": "Wash dishes", "themeId": 2, "completed": false},
-        {"id": 6, "text": "Cat in the Hat", "themeId": 3, "completed": true}
-    ]
+  "colors": [
+    {
+      "id": 1,
+      "name": "red",
+      "hex": "#c21807"
+    },
+    {
+      "id": 2,
+      "name": "green",
+      "hex": "#3ea055"
+    },
+    {
+      "id": 3,
+      "name": "blue",
+      "hex": "#0492C2"
+    },
+    {
+      "id": 4,
+      "name": "purple",
+      "hex": "#663a82"
+    },
+    {
+      "id": 5,
+      "name": "yellow",
+      "hex": "#ffd300"
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "text": "Grocery",
+      "colorId": 2
+    },
+    {
+      "id": 2,
+      "text": "Housework",
+      "colorId": 5
+    },
+    {
+      "id": 3,
+      "text": "Movies to watch",
+      "colorId": 3
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Chicken",
+      "themeId": 1,
+      "completed": true
+    },
+    {
+      "id": 2,
+      "text": "Eggs",
+      "themeId": 1,
+      "completed": false
+    },
+    {
+      "id": 3,
+      "text": "Milk",
+      "themeId": 1,
+      "completed": false
+    },
+    {
+      "id": 4,
+      "text": "Cook a dinner",
+      "themeId": 2,
+      "completed": true
+    },
+    {
+      "id": 5,
+      "text": "Wash dishes",
+      "themeId": 2,
+      "completed": false
+    },
+    {
+      "id": 6,
+      "text": "Cat in the Hat",
+      "themeId": 3,
+      "completed": true
+    }
+  ]
 }

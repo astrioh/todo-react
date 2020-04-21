@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavList from '../NavList/NavList';
+import axios from 'axios'
 
 import plusImg from '../../assets/img/plus.png';
 import './AddListBtn.scss';
@@ -28,9 +29,13 @@ const AddListBtn = ({ colors, onAddTheme, themeLastId }) => {
             alert('Enter theme name');
             return
         }
-        const color = colors.find((color) => color.id === selectedColor);
-        onAddTheme({id: ++themeLastId, text: themeName, colorId: selectedColor, color: color});
-        closeAddModal();
+        
+        axios.post('http://localhost:3005/themes', {text: themeName, colorId: selectedColor}).then(({ data }) => {
+            const color = colors.find((color) => color.id === selectedColor);
+            const newTheme = {...data, color};
+            onAddTheme(newTheme);
+            closeAddModal();
+        });
     }
 
     return (
