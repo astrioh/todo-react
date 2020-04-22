@@ -4,18 +4,17 @@ import './Tasks.scss';
 import editImg from '../../assets/img/edit.png';
 import Task from './Task/Task';
 
-const Tasks = () => {
+const Tasks = ({theme}) => {
+    console.log(theme);
+    
     return (
         <div className="tasks">
             <h2 className="tasks__title">
-                Grocery
+                {theme.text}
                 <img src={editImg} alt="Edit theme name" className="tasks__edit-img"/>
             </h2>
             <ul className="tasks__items">
-                <li className="tasks__item"><Task text="Chicken" /></li>
-                <li className="tasks__item"><Task text="Chicken" /></li>
-                <li className="tasks__item"><Task text="Chicken" /></li>
-                <li className="tasks__item"><Task text="Chicken" /></li>
+                {theme.tasks.map((task) => (<li key={task.id} className="tasks__item"><Task id={task.id} text={task.text} completed={task.completed} /></li>))}
             </ul>
         </div>
     );

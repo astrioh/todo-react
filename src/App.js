@@ -13,7 +13,7 @@ function App() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:3005/themes?_expand=color')
+            .get('http://localhost:3005/themes?_expand=color&_embed=tasks')
             .then(({ data }) => {
                 setThemes(data);
             });
@@ -62,7 +62,7 @@ function App() {
                 />
             </div>
             <div className="todo-app__tasks">
-                <Tasks theme={themes[0]} />
+                {themes && <Tasks theme={themes[0]} />}
             </div>
         </div>
     );
