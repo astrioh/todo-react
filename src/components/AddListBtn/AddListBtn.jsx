@@ -32,7 +32,7 @@ const AddListBtn = ({ colors, onAddTheme, themeLastId }) => {
         
         axios.post('http://localhost:3005/themes', {text: themeName, colorId: selectedColor}).then(({ data }) => {
             const color = colors.find((color) => color.id === selectedColor);
-            const newTheme = {...data, color};
+            const newTheme = {...data, color, tasks: []};
             onAddTheme(newTheme);
             closeAddModal();
         });

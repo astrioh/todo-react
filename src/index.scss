@@ -35,6 +35,7 @@ body {
     }
     &__tasks {
         flex: 1;
+        position: relative;
         padding: 60px 55px;
     }
 }

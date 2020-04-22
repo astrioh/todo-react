@@ -1,18 +1,40 @@
 .tasks {
     &__title {
-        font-size: 32px;
+        font-size: 34px;
         line-height: 39px;
-        color: #3ea055;
         font-weight: bold;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         border-bottom: 2px solid #f2f2f2;
         padding-bottom: 20px;
+        &_red {
+            color: #c21807;
+        }
+        &_green {
+            color: #3ea055;
+        }
+        &_blue {
+            color: #0492C2;
+        }
+        &_purple {
+            color: #663a82;
+        }
+        &_yellow {
+            color: #ffd300;
+        }
         &:hover .tasks__edit-img {
             opacity: 0.3;
             &:hover {
                 opacity: 1;
             }
         }
+    }
+    &__empty-title {
+        font-size: 24px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgb(180, 180, 180);
     }
     &__edit-img {
         width: 25px;

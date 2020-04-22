@@ -10,6 +10,7 @@ import menuImg from './assets/img/menu.png';
 function App() {
     const [themes, setThemes] = useState(null);
     const [colors, setColors] = useState(null);
+    const [activeItem, setActiveItem] = useState(null);
 
     useEffect(() => {
         axios
@@ -25,6 +26,16 @@ function App() {
     const onAddTheme = (themeObj) => {
         setThemes([...themes, themeObj]);
     };
+
+    const onEditThemeTitle = (id, title) => {
+        const newThemes = themes.map(theme => {
+            if (theme.id === id) {
+                theme.text = title;
+            }
+            return theme;
+        });
+        setThemes(newThemes);
+    }
 
     return (
         <div className="todo-app">
@@ -48,7 +59,10 @@ function App() {
                                     (theme) => theme.id !== id
                                 );
                                 setThemes(newThemes);
+                                setActiveItem(newThemes[themes.length - 2])
                             }}
+                            onItemClick={item => setActiveItem(item)}
+                            activeItem={activeItem}
                             deletable
                         />
                     ) : (
@@ -62,7 +76,7 @@ function App() {
                 />
             </div>
             <div className="todo-app__tasks">
-                {themes && <Tasks theme={themes[0]} />}
+                {themes && activeItem && <Tasks theme={activeItem} onTitleEdit={onEditThemeTitle} />}
             </div>
         </div>
     );
