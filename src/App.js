@@ -27,6 +27,16 @@ function App() {
         setThemes([...themes, themeObj]);
     };
 
+    const onAddTask = (themeId, taskObj) => {
+        const newThemes = themes.map((theme) => {
+            if (theme.id === themeId) {
+                theme.tasks = [...theme.tasks, taskObj];
+            }
+            return theme;
+        });
+        setThemes(newThemes);
+    };
+
     const onEditThemeTitle = (id, title) => {
         const newThemes = themes.map(theme => {
             if (theme.id === id) {
@@ -76,7 +86,7 @@ function App() {
                 />
             </div>
             <div className="todo-app__tasks">
-                {themes && activeItem && <Tasks theme={activeItem} onTitleEdit={onEditThemeTitle} />}
+                {themes && activeItem && <Tasks theme={activeItem} onAddTask={onAddTask} onTitleEdit={onEditThemeTitle} />}
             </div>
         </div>
     );

@@ -1,0 +1,39 @@
+.task-form {
+    margin-top: 25px;
+    &__new {
+        color: #000;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0.3;
+        img {
+            width: 25px;
+            margin-right: 15px;
+        }
+        &:hover {
+            transition: .2s ease-in-out;
+            opacity: 1;
+        }
+    }
+    &__controls {
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-start;
+    }
+    &__textfield.textfield {
+        height: 35px;
+        padding: 3px 10px;
+        border: 1px solid #dadada;
+        border-radius: 5px;
+    }
+    &__add {
+        width: 150px;
+        height: 35px;
+        margin-right: 15px;
+    }
+    &__cancel {
+        width: 95px;
+        height: 35px;
+    }
+}

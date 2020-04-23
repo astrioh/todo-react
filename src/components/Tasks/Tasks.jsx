@@ -7,7 +7,7 @@ import editImg from '../../assets/img/edit.png';
 import Task from './Task/Task';
 import TaskForm from './TaskForm/TaskForm';
 
-const Tasks = ({ theme, onTitleEdit }) => {
+const Tasks = ({ theme, onTitleEdit, onAddTask }) => {
     const titleEdit = () => {
         const newTitle = prompt('Enter new title', theme.text);
         if (newTitle) {
@@ -45,7 +45,7 @@ const Tasks = ({ theme, onTitleEdit }) => {
                     </li>
                 ))}
             </ul>
-            <TaskForm />
+            <TaskForm theme={theme} onAddTask={onAddTask} />
         </div>
     );
 };
