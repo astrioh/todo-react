@@ -16,11 +16,13 @@
     }
     &__check {
         display: none;
+        transition: background-image .2s ease-in-out;
         &:hover + .task__custom-check::before {
             border: none;
             width: 24px;
             height: 24px;
             background-image: url('../../../assets/img/check_hover.png');
+            transition: background-image .2s ease-in-out;
         }
         &:checked + .task__custom-check::before {
             content: '';
@@ -28,6 +30,7 @@
             height: 24px;
             border: none;
             background-image: url('../../../assets/img/check.png');
+            transition: background-image .2s ease-in-out;
         }
     } 
     &__text {
