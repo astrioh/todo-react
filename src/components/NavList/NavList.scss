@@ -30,11 +30,11 @@
             background-color: #fff;
         }
         &:hover {
-            transition: .2s;
+            transition: .2s ease-in-out;
             box-shadow: 1px 2px 6px #e3e3e3;
         }
         &:hover img {
-            transition: .2s;
+            transition: .2s ease-in-out;
             opacity: 1;
         }
         &:hover .nav-list__delete-item {
@@ -42,16 +42,20 @@
         }
         .nav-list__delete-item {
             position: absolute;
+            box-sizing: content-box;
+            padding: 3px;
             right: 30px;
             width: 15px;
             height: 15px;
             opacity: 0;
             &:hover {
+                border-radius: 3px;
+                background-color: #fff;
                 opacity: 1;
             }
             &::before, &::after {
                 position: absolute;
-                right: 7px;
+                right: 10px;
                 content: ' ';
                 height: 16px;
                 width: 2px;

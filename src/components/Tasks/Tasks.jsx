@@ -7,7 +7,7 @@ import editImg from '../../assets/img/edit.png';
 import Task from './Task/Task';
 import TaskForm from './TaskForm/TaskForm';
 
-const Tasks = ({ theme, onTitleEdit, onAddTask, withoutEmptyBody }) => {
+const Tasks = ({ theme, onTitleEdit, onAddTask, withoutEmptyBody, onDeleteTask, onEditTask, onCompleteTask }) => {
     const titleEdit = () => {
         const newTitle = prompt('Enter new title', theme.text);
         if (newTitle) {
@@ -19,7 +19,7 @@ const Tasks = ({ theme, onTitleEdit, onAddTask, withoutEmptyBody }) => {
                 .catch(() => alert("Couldn't update theme name!"));
         }
     };
-
+    
     return (
         <div className="tasks">
             <h2 className={`tasks__title tasks__title_${theme.color.name}`}>
@@ -38,14 +38,18 @@ const Tasks = ({ theme, onTitleEdit, onAddTask, withoutEmptyBody }) => {
                 {theme.tasks.map((task) => (
                     <li key={task.id} className="tasks__item">
                         <Task
+                            onEdit={onEditTask}
+                            onDelete={onDeleteTask}
+                            onComplete={onCompleteTask}
                             id={task.id}
+                            themeId={theme.id}
                             text={task.text}
                             completed={task.completed}
                         />
                     </li>
                 ))}
             </ul>
-            <TaskForm theme={theme} onAddTask={onAddTask} />
+            <TaskForm key={theme.id} theme={theme} onAddTask={onAddTask} />
         </div>
     );
 };
