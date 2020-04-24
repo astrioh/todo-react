@@ -1,4 +1,13 @@
 .task {
+    position: relative;
+    display: flex;
+    align-items: center;
+    &:hover &__edit, &:hover &__delete {
+        opacity: 0.3;
+    }
+    .task__edit:hover, .task__delete:hover {
+            opacity: 1;
+        }
     &__custom-check {
         &::before {
             cursor: pointer;
@@ -40,8 +49,41 @@
         border-radius: 5px;
         padding: 5px;
         transition: .1s ease-in-out;
-        /* &:focus {
-            border: 1px solid rgb(170, 170, 170);
-        } */
-    }  
+    }
+    &__controls {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+    &__edit {
+        width: 20px;
+        cursor: pointer;
+        opacity: 0;
+        margin-right: 10px;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &__delete {
+        cursor: pointer;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        opacity: 0;
+        &::before, &::after {
+            position: absolute;
+            left: 8px;
+            content: ' ';
+            height: 20px;
+            width: 2px;
+            background-color: #333;
+        }
+        &::before {
+            transform: rotate(45deg);
+        }
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
 }
