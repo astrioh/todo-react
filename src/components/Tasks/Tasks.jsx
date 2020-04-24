@@ -7,7 +7,7 @@ import editImg from '../../assets/img/edit.png';
 import Task from './Task/Task';
 import TaskForm from './TaskForm/TaskForm';
 
-const Tasks = ({ theme, onTitleEdit, onAddTask }) => {
+const Tasks = ({ theme, onTitleEdit, onAddTask, withoutEmptyBody }) => {
     const titleEdit = () => {
         const newTitle = prompt('Enter new title', theme.text);
         if (newTitle) {
@@ -32,7 +32,7 @@ const Tasks = ({ theme, onTitleEdit, onAddTask }) => {
                 />
             </h2>
             <ul className="tasks__items">
-                {!theme.tasks.length && (
+                {!withoutEmptyBody && !theme.tasks.length && (
                     <h3 className="tasks__empty-title">There are no tasks</h3>
                 )}
                 {theme.tasks.map((task) => (

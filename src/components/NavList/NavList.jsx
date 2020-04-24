@@ -20,7 +20,7 @@ const NavList = ({ items, deletable, onClick, onDelete, onItemClick, activeItem 
             {items.map((item) => (
                 <li
                     key={item.id}
-                    className={activeItem && item.id === activeItem.id ? "nav-list__item nav-list__item_active" : "nav-list__item"}
+                    className={((activeItem && item.id === activeItem.id) || item.active) ? "nav-list__item nav-list__item_active" : "nav-list__item"}
                     onClick={onItemClick ? () => onItemClick(item) : null}
                 >
                     {item.icon ? (

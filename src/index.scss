@@ -11,10 +11,12 @@ body {
 }
 
 .todo-app {
-    width: 1000px;
-    height: 700px;
-    margin: 0 auto;
-    margin-top: 50px;
+    width: 60%;
+    height: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     box-shadow: 1px 1px 11px #f3f3f3;
     border: 1px solid #d2d4d5;
@@ -37,6 +39,7 @@ body {
         flex: 1;
         position: relative;
         padding: 60px 55px;
+        overflow-y: auto;
     }
 }
 

@@ -1,5 +1,10 @@
 .tasks {
+    &:not(:last-of-type) {
+        margin-bottom: 50px;
+    }
     &__title {
+        display: flex;
+        align-items: center;
         font-size: 34px;
         line-height: 39px;
         font-weight: bold;
