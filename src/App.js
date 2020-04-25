@@ -148,7 +148,6 @@ function App() {
                                 history.location.pathname = '/';
                                 setThemes(newThemes);
                                 setActiveItem(null);
-                                
                             }}
                             onItemClick={(item) =>
                                 history.push(`/themes/${item.id}`)

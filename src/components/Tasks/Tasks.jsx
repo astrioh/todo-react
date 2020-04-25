@@ -1,6 +1,7 @@
 import React from 'react';
 import './Tasks.scss';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import editImg from '../../assets/img/edit.png';
 
@@ -22,15 +23,17 @@ const Tasks = ({ theme, onTitleEdit, onAddTask, withoutEmptyBody, onDeleteTask, 
     
     return (
         <div className="tasks">
-            <h2 className={`tasks__title tasks__title_${theme.color.name}`}>
-                <span>{theme.text}</span>
-                <img
-                    src={editImg}
-                    onClick={titleEdit}
-                    alt="Edit theme name"
-                    className="tasks__edit-img"
-                />
-            </h2>
+            <Link to={`/themes/${theme.id}`}>
+                <h2 className={`tasks__title tasks__title_${theme.color.name}`}>
+                    <span>{theme.text}</span>
+                    <img
+                        src={editImg}
+                        onClick={titleEdit}
+                        alt="Edit theme name"
+                        className="tasks__edit-img"
+                    />
+                </h2>
+            </Link>
             <ul className="tasks__items">
                 {!withoutEmptyBody && !theme.tasks.length && (
                     <h3 className="tasks__empty-title">There are no tasks</h3>

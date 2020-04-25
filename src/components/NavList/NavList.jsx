@@ -33,7 +33,7 @@ const NavList = ({ items, deletable, onClick, onDelete, onItemClick, activeItem 
                         <i><Dot color={item.color.name} /></i>
                     )}
                     <span className="nav-list__item-text">{item.text}</span>
-                    {item.tasks && item.tasks.length > 0 && activeItem && item.id !== activeItem.id && (
+                    {item.tasks && item.tasks.length > 0 && (
                         <span className="nav-list__item-count">
                             {item.tasks.length}
                         </span>
